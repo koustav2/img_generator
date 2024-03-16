@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware to parse JSON bodies
 app.use(cors({
-  origin: ["https://img-generator-eight.vercel.app"]
+  origin: '*'
 }))
 app.use(express.json());
 app.use(bodyParser.json());
