@@ -7,7 +7,9 @@ const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 5000;
 
 // Middleware to parse JSON bodies
-app.use(cors())
+app.use(cors({
+  origin: ["https://img-generator-eight.vercel.app"]
+}))
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
