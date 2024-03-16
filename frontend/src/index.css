@@ -10,5 +10,5 @@ html {
 }
 
 body {
-    @apply bg-gray-100 h-screen;
+    @apply bg-gradient-to-r from-indigo-600 via-purple-500 to-pink-900 h-screen;
 }
