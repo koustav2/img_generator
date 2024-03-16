@@ -21,7 +21,7 @@ router.post('/generate-image', async (req, res) => {
             prompt: prompt,
             model: "dall-e-3",
             response_format: 'url',
-            size: "1024x1024",
+            size: imageSize ? imageSize : "1024x1024",
             style: options[randomIndex],
             quality: "hd"
 
