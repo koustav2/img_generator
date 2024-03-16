@@ -2,6 +2,8 @@
 import React from 'react'
 import generateImg from '../utils/generateImg'
 import { toast } from "react-hot-toast"
+import { saveAs } from 'file-saver'
+import Downlode from './Downlode'
 const ImageGenerator = () => {
   const [prompt, setPrompt] = React.useState('')
   const [isLoading, setIsLoading] = React.useState(false);
@@ -23,22 +25,23 @@ const ImageGenerator = () => {
       }
     )
       .finally(() => {
-        // End loading in any case
         setIsLoading(false);
       });
   };
 
+
+
   return (
     <div>
       <h1 className='text-center text-2xl font-semibold text-violet-950'>Image Generator</h1>
-      <div className="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-400 dark:border-gray-600">
+      <div className="w-[600px] mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-400 dark:border-gray-600">
         <div className="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800">
           <label htmlFor="comment" className="sr-only">Your comment</label>
           <textarea
             id="comment"
             value={prompt}
             rows="4"
-            className="outline-none w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400" placeholder="Write somthing in prompt to generate" required
+            className="outline-none w-[580px] px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400" placeholder="Write somthing in prompt to generate" required
             onChange={(e) => setPrompt(e.target.value)}
           >
           </textarea>
@@ -52,6 +55,13 @@ const ImageGenerator = () => {
           </button>
         </div>
       </div >
+      {
+        imgUrl !== '' ? (<div className='flex justify-center gap-4 items-center pl-2'>
+          <img src={imgUrl} alt="Generated Image" className="w-[550px] h-[400px] rounded-md" />
+          <Downlode imageUrl={imgUrl} />
+        </div>) : (<></>)
+
+      }
     </div>
   )
 }
