@@ -9,6 +9,11 @@ const openai = new OpenAI({
 });
 
 
+router.get('/', function(req, res){
+    res.send('Hey this is my API running 🥳')
+})
+
+
 router.post('/generate-image', async (req, res) => {
     const { prompt, size } = req.body;
 
