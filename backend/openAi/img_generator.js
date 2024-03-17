@@ -1,16 +1,17 @@
 const { OpenAI } = require('openai');
 const express = require('express');
 
-
 const router = express.Router();
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
+    organization:'org-EYmQFPE9Nt1jt6Dy4mmMvHue'
 });
 
-
-router.get('/', function(req, res){
-    res.send('Hey this is my API running 🥳')
+router.get('/', function (req, res) {
+    res.status(200).json({
+        message: 'Hey this is my API running 🥳'
+    })
 })
 
 
