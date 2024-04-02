@@ -1,0 +1,23 @@
+service: img-generator
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-south-1
+
+functions:
+  api:
+    handler: index.app
+    events:
+      - httpApi:
+          path: /api/v1/
+          method: get
+
+  generate-image:
+    handler: index.app
+    events:
+      - httpApi:
+           path: /api/v1/generate-image
+           method: post
+
